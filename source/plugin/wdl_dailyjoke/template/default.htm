@@ -1,0 +1,21 @@
+<!--{block return}-->
+
+<div class="bm">
+	<div class="bm_h">
+		<h2>{lang wdl_dailyjoke:dayjoke}</h2>
+	</div>
+	<div class="bm_c cl" id="jokecontent"></div>
+</div>
+
+<style type="text/css">
+.wdl_common_img {
+	margin-right: 5px;
+}
+</style>
+
+<script type="text/javascript">
+ajaxget('{$_G['siteurl']}/plugin.php?id=wdl_dailyjoke:get','jokecontent','','jokecontent');
+</script>
+
+<!--{/block}-->
+<!--{eval return $return;}-->
