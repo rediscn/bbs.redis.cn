@@ -1,0 +1,20 @@
+<div style="height:30px;line-height:30px;background-color:#E5EDF2;font-size:12px;padding-left:10px;">
+关于<a id="bbs_post_href" href="http://bbs.redis.cn/forum.php?mod=viewthread&tid=$firstpost[tid]" target="_blank">$firstpost[subject]</a>的最新评论
+</div>
+<!--{eval $postcount = 0;}-->
+<!--{loop $postlist $post}-->
+<!--{if $postcount}-->
+<!--{else}-->
+<!--{/if}-->
+<div id="post_$post[pid]" style="background-color:#ffffff;margin-bottom:10px; {if $_G['blockedpids'] && $post['inblacklist']}display:none;{/if}" >
+
+	<div style="height:34px;line-height:34px;font-size:12px;border-bottom:1px dashed #CDCDCD;padding-left:10px;">$post[author] 发布于  $post[dateline]</div>
+	<div style="padding:10px;">
+		$post[message]
+	</div>
+</div>
+<!--{eval $postcount++;}-->
+<!--{/loop}-->
+<div style="height:40px;text-align:center;background-color:#ffffff;padding:20px;">
+	<div onclick="click_bbs_post_href()" style="width:200px;border:1px solid #235994; background-color:#06C;height:40px;line-height:40px;margin:auto;color:#ffffff;cursor:pointer;">发表评论</div>
+</div>
