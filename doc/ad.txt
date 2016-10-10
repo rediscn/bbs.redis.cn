@@ -1,0 +1,49 @@
+﻿<a id="bbs_float_left_ad" href="" target="_blank"><img src="" height="270" width="120" alt="阿里云" border="0"></a>
+<script type='text/javascript'>
+	function aliLeftCallBack(json){
+		if(json && json.success && json.data){
+			var adjson = eval(json.data[0].content);
+			if(adjson){
+				jQuery("#bbs_float_left_ad").attr('href',adjson[0].url);
+				jQuery("#bbs_float_left_ad img").attr('src',adjson[0].img);
+			}
+		}
+	}
+	
+jQuery(document).ready(function(){ 
+		if(jQuery("#bbs_float_left_ad").length){
+				jQuery.ajax({
+             type: "get",
+             async: false,
+             url: "https://promotion.aliyun.com/promotion/adv/getAliyunAdv.htm?s=0df56e5827cb4947b8050f4ea282609d&p=page_1474883012984&pin=pos_1474883012984&cback=aliLeftCallBack",
+             dataType: "jsonp"
+         });
+    }
+});
+</script>
+
+////////////////////////////////////////////////////
+
+<a id="bbs_float_right_ad" href="" target="_blank"><img src="" height="270" width="120" alt="阿里云" border="0"></a>
+<script type='text/javascript'>
+	function aliRightCallBack(json){
+		if(json && json.success && json.data){
+			var adjson = eval(json.data[0].content);
+			if(adjson){
+				jQuery("#bbs_float_right_ad").attr('href',adjson[0].url);
+				jQuery("#bbs_float_right_ad img").attr('src',adjson[0].img);
+			}
+		}
+	}
+	
+jQuery(document).ready(function(){ 
+		if(jQuery("#bbs_float_right_ad").length){
+				jQuery.ajax({
+             type: "get",
+             async: false,
+             url: "https://promotion.aliyun.com/promotion/adv/getAliyunAdv.htm?s=0df56e5827cb4947b8050f4ea282609d&p=page_1474883012984&pin=pos_1474883101714&cback=aliRightCallBack",
+             dataType: "jsonp"
+         });
+    }
+});
+</script>

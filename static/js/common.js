@@ -286,6 +286,22 @@ function Ajax(recvType, waitId) {
 			aj.XMLHttpRequest.send();
 		}
 	};
+	aj.get1 = function(targetUrl, resultHandle) {
+		setTimeout(function(){aj.showLoading()}, 250);
+		aj.targetUrl = targetUrl;
+		aj.XMLHttpRequest.onreadystatechange = aj.processHandle;
+		aj.resultHandle = resultHandle;
+		var attackevasive = isUndefined(attackevasive) ? 0 : attackevasive;
+		if(window.XMLHttpRequest) {
+			aj.XMLHttpRequest.open('GET', aj.targetUrl);
+			aj.XMLHttpRequest.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+			aj.XMLHttpRequest.send(null);
+		} else {
+			aj.XMLHttpRequest.open("GET", targetUrl, true);
+			aj.XMLHttpRequest.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+			aj.XMLHttpRequest.send();
+		}
+	};
 	aj.post = function(targetUrl, sendString, resultHandle) {
 		targetUrl = hostconvert(targetUrl);
 		setTimeout(function(){aj.showLoading()}, 250);
